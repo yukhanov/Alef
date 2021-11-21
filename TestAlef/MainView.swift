@@ -18,9 +18,13 @@ class MainView: UIView, Configurable {
 
     let personalLabel = UILabel()
     let mainStackView = UIStackView()
+    let addChildButton = UIButton(type: .custom)
     let addChildLabelAndButtonStackView = UIStackView()
     let childrenStackView = UIStackView()
     let childNameAndButtonStackView = UIStackView()
+    let childAgeTextField = UITextField()
+    let spacer = UIView()
+
 
 
     public func configuratePersonalLabel() {
@@ -72,16 +76,15 @@ class MainView: UIView, Configurable {
     }
     
     func addButtonToStackView() {
-        let button = UIButton(type: .custom)
-        button.setTitle("+ Добавить ребенка", for: .normal)
-        button.backgroundColor = .white
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        button.titleLabel?.numberOfLines = 1
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 25
-        button.layer.borderColor = UIColor.systemBlue.cgColor
-        addChildLabelAndButtonStackView.addArrangedSubview(button)
+        addChildButton.setTitle("+ Добавить ребенка", for: .normal)
+        addChildButton.backgroundColor = .white
+        addChildButton.setTitleColor(.systemBlue, for: .normal)
+        addChildButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        addChildButton.titleLabel?.numberOfLines = 1
+        addChildButton.layer.borderWidth = 2
+        addChildButton.layer.cornerRadius = 25
+        addChildButton.layer.borderColor = UIColor.systemBlue.cgColor
+        addChildLabelAndButtonStackView.addArrangedSubview(addChildButton)
     }
     
     func configurateChildSV() {
@@ -89,6 +92,7 @@ class MainView: UIView, Configurable {
         childrenStackView.distribution  = .fillProportionally
         childrenStackView.alignment = .fill
         childrenStackView.spacing   = 10
+        
         
         configurateChildNameAndButtonStackViewToChildSV()
         addChildAgeToStackView()
@@ -121,9 +125,11 @@ class MainView: UIView, Configurable {
     }
     
     func addChildAgeToStackView() {
-        let textField = UITextField()
-        textField.placeholder = "Возраст"
-        textField.borderStyle = .roundedRect
-        childrenStackView.addArrangedSubview(textField)
+        childAgeTextField.placeholder = "Возраст"
+        childAgeTextField.borderStyle = .roundedRect
+        childrenStackView.addArrangedSubview(childAgeTextField)
+
+        
     }
+
 }

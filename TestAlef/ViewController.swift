@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     let mainView = MainView()
     
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +21,17 @@ class ViewController: UIViewController {
         setConstraints()
         
         mainView.configuratePersonalLabel()
-        
         mainView.configurateMainSV()
-        
         mainView.configurateAddChildLabelAndButtonSV()
-        
-        mainView.configurateChildSV()
-        
-    
+        mainView.addChildButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        print("Button tapped")
+        mainView.configurateChildSV()
+     }
+
+    
 
 }
 
@@ -72,9 +76,16 @@ extension ViewController {
         view.addSubview(mainView.childNameAndButtonStackView)
         mainView.childNameAndButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-           
             mainView.childNameAndButtonStackView.heightAnchor.constraint(equalToConstant: 50)
                ])
+        //let widthOfView = mainView.childrenStackView.intrinsicContentSize.width
+       // let widthForTF = widthOfView \ 2
+        mainView.childAgeTextField.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            mainView.childAgeTextField.widthAnchor.constraint(equalToConstant: 150)
+//        ])
+        
+     
     }
 }
     
