@@ -16,14 +16,11 @@ protocol Configurable {
 
 class MainView: UIView, Configurable {
 
-    
- 
-  
-
     let personalLabel = UILabel()
     let mainStackView = UIStackView()
     let addChildLabelAndButtonStackView = UIStackView()
     let childrenStackView = UIStackView()
+    let childNameAndButtonStackView = UIStackView()
 
 
     public func configuratePersonalLabel() {
@@ -49,6 +46,7 @@ class MainView: UIView, Configurable {
         textField.borderStyle = .roundedRect
         mainStackView.addArrangedSubview(textField)
     }
+    
     func addAgeTextFieldToStackView() {
         let textField = UITextField()
         textField.placeholder = "Возраст"
@@ -92,19 +90,40 @@ class MainView: UIView, Configurable {
         childrenStackView.alignment = .fill
         childrenStackView.spacing   = 10
         
-        addChildNameAndButtonStackViewToChildSV()
+        configurateChildNameAndButtonStackViewToChildSV()
         addChildAgeToStackView()
     }
     
-    func addChildNameAndButtonStackViewToChildSV() {
-        let stackViewChildNameAndButtonStackView = UIStackView()
-        stackViewChildNameAndButtonStackView.axis = .horizontal
-        stackViewChildNameAndButtonStackView.distribution  = .fillProportionally
-        stackViewChildNameAndButtonStackView.alignment = .fill
-        stackViewChildNameAndButtonStackView.spacing   = 10
+    func configurateChildNameAndButtonStackViewToChildSV() {
+        
+        childNameAndButtonStackView.axis = .horizontal
+        childNameAndButtonStackView.distribution  = .fillProportionally
+        childNameAndButtonStackView.alignment = .fill
+        childNameAndButtonStackView.spacing   = 10
+        childrenStackView.addArrangedSubview(childNameAndButtonStackView)
+        
+        addChildNameTextFieldToSV()
+        addDeleteButtonToSV()
         
     }
+    
+    func addChildNameTextFieldToSV() {
+        let textField = UITextField()
+        textField.placeholder = "Имя"
+        textField.borderStyle = .roundedRect
+        childNameAndButtonStackView.addArrangedSubview(textField)
+    }
+    func addDeleteButtonToSV() {
+        let button = UIButton(type: .system)
+        button.setTitle("Удалить", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        childNameAndButtonStackView.addArrangedSubview(button)
+    }
+    
     func addChildAgeToStackView() {
-        
+        let textField = UITextField()
+        textField.placeholder = "Возраст"
+        textField.borderStyle = .roundedRect
+        childrenStackView.addArrangedSubview(textField)
     }
 }

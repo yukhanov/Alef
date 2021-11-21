@@ -23,6 +23,10 @@ class ViewController: UIViewController {
         mainView.configurateMainSV()
         
         mainView.configurateAddChildLabelAndButtonSV()
+        
+        mainView.configurateChildSV()
+        
+    
     }
 
 }
@@ -55,6 +59,22 @@ extension ViewController {
             mainView.addChildLabelAndButtonStackView.heightAnchor.constraint(equalToConstant: 50)
                ])
         
+        view.addSubview(mainView.childrenStackView)
+        mainView.childrenStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainView.childrenStackView.topAnchor.constraint(equalTo: mainView.addChildLabelAndButtonStackView.bottomAnchor, constant: 20),
+            mainView.childrenStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            mainView.childrenStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            //childrenStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            mainView.childrenStackView.heightAnchor.constraint(equalToConstant: 110)
+               ])
+        
+        view.addSubview(mainView.childNameAndButtonStackView)
+        mainView.childNameAndButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+           
+            mainView.childNameAndButtonStackView.heightAnchor.constraint(equalToConstant: 50)
+               ])
     }
 }
     
