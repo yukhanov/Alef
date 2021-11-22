@@ -80,7 +80,7 @@ extension ViewController {
                ])
         //let widthOfView = mainView.childrenStackView.intrinsicContentSize.width
        // let widthForTF = widthOfView \ 2
-        mainView.childAgeTextField.translatesAutoresizingMaskIntoConstraints = false
+       // mainView.childAgeTextField.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
 //            mainView.childAgeTextField.widthAnchor.constraint(equalToConstant: 150)
 //        ])

@@ -22,7 +22,7 @@ class MainView: UIView, Configurable {
     let addChildLabelAndButtonStackView = UIStackView()
     let childrenStackView = UIStackView()
     let childNameAndButtonStackView = UIStackView()
-    let childAgeTextField = UITextField()
+    let childAgeStackView = UIStackView()
     let spacer = UIView()
 
 
@@ -95,7 +95,7 @@ class MainView: UIView, Configurable {
         
         
         configurateChildNameAndButtonStackViewToChildSV()
-        addChildAgeToStackView()
+        configurateChildAgeStackView()
     }
     
     func configurateChildNameAndButtonStackViewToChildSV() {
@@ -104,10 +104,11 @@ class MainView: UIView, Configurable {
         childNameAndButtonStackView.distribution  = .fillProportionally
         childNameAndButtonStackView.alignment = .fill
         childNameAndButtonStackView.spacing   = 10
-        childrenStackView.addArrangedSubview(childNameAndButtonStackView)
-        
         addChildNameTextFieldToSV()
         addDeleteButtonToSV()
+        childrenStackView.addArrangedSubview(childNameAndButtonStackView)
+        
+ 
         
     }
     
@@ -125,11 +126,21 @@ class MainView: UIView, Configurable {
     }
     
     func addChildAgeToStackView() {
+        let childAgeTextField = UITextField()
         childAgeTextField.placeholder = "Возраст"
         childAgeTextField.borderStyle = .roundedRect
-        childrenStackView.addArrangedSubview(childAgeTextField)
-
+        childAgeStackView.addArrangedSubview(childAgeTextField)
+    }
+    
+    func configurateChildAgeStackView() {
+        childAgeStackView.axis = .horizontal
+        childAgeStackView.distribution  = .fillProportionally
+        childAgeStackView.alignment = .fill
+        childAgeStackView.spacing   = 10
         
+        addChildAgeToStackView()
+        
+        childrenStackView.addArrangedSubview(childAgeStackView)
     }
 
 }
